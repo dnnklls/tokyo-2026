@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tokyo · May–June 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:     #0c0a08;
+      --ink2:    #161310;
+      --ink3:    #201d19;
+      --ink4:    #2c2824;
+      --border:  rgba(255,255,255,0.08);
+      --border2: rgba(255,255,255,0.14);
+      --text:    #f0ebe2;
+      --text2:   #b0a898;
+      --text3:   #7a7268;
+      --red:     #e8473a;
+      --red-dim: rgba(232,71,58,0.18);
+      --gold:    #d4a843;
+      --gold-dim:rgba(212,168,67,0.15);
+      --teal:    #3db89a;
+      --teal-dim:rgba(61,184,154,0.12);
+      --white:   #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--ink);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─────────────────────────────
+       GRAIN TEXTURE OVERLAY
+    ───────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─────────────────────────────
+       HERO
+    ───────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 32px 56px;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 85% 20%, rgba(232,71,58,0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 80% at 10% 90%, rgba(61,184,154,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 50% 50%, rgba(212,168,67,0.05) 0%, transparent 60%);
+    }
+
+    .hero-kanji {
+      position: absolute;
+      top: -0.1em;
+      right: -0.05em;
+      font-family: 'Cormorant', serif;
+      font-size: clamp(180px, 38vw, 420px);
+      font-weight: 300;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.05);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-top: 36px;
+      margin-bottom: auto;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--text3);
+      text-transform: uppercase;
+    }
+
+    .hero-flight-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--teal);
+      background: var(--teal-dim);
+      border: 1px solid rgba(61,184,154,0.25);
+      border-radius: 4px;
+      padding: 5px 10px;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-body {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-date-bar {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text3);
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+
+    .hero-city {
+      font-family: 'Cormorant', serif;
+      font-size: clamp(72px, 18vw, 160px);
+      font-weight: 700;
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .hero-city em {
+      font-style: italic;
+      color: var(--red);
+    }
+
+    .hero-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--red);
+      margin-bottom: 20px;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--text2);
+      font-weight: 300;
+      max-width: 340px;
+      line-height: 1.7;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .hero-pill {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--text2);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border2);
+      border-radius: 100px;
+      padding: 6px 14px;
+    }
+
+    /* ─────────────────────────────
+       CONTENT
+    ───────────────────────────── */
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ─────────────────────────────
+       SECTION LABEL
+    ───────────────────────────── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 56px 0 24px;
+    }
+
+    .section-label-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text3);
+      white-space: nowrap;
+    }
+
+    .section-label-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ─────────────────────────────
+       AIRPORT SECTION
+    ───────────────────────────── */
+    .airport-section {
+      background: var(--ink2);
+      border: 1px solid var(--border2);
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-bottom: 8px;
+    }
+
+    .airport-heading {
+      font-family: 'Cormorant', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .airport-sub {
+      font-size: 12.5px;
+      color: var(--text3);
+      margin-bottom: 28px;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: 0.04em;
+    }
+
+    .route-steps { position: relative; padding-left: 20px; }
+
+    .route-steps::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 12px;
+      bottom: 12px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--red), var(--teal));
+    }
+
+    .route-step {
+      position: relative;
+      padding: 0 0 24px 24px;
+    }
+
+    .route-step:last-child { padding-bottom: 0; }
+
+    .route-dot {
+      position: absolute;
+      left: -5px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--ink2);
+      border: 2px solid var(--red);
+    }
+
+    .route-step:last-child .route-dot { border-color: var(--teal); }
+
+    .route-step-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 4px;
+    }
+
+    .route-step-title {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .route-step-desc {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+
+    .route-tag {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      background: var(--teal-dim);
+      color: var(--teal);
+      border-radius: 4px;
+      padding: 2px 8px;
+      margin-top: 6px;
+      margin-right: 4px;
+    }
+
+    .route-tag.red {
+      background: var(--red-dim);
+      color: var(--red);
+    }
+
+    .map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--teal);
+      text-decoration: none;
+      margin-top: 8px;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid rgba(61,184,154,0.3);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .map-btn:hover { color: #6dd5bc; border-color: rgba(61,184,154,0.6); }
+    .map-btn::before { content: '↗'; font-size: 11px; }
+
+    /* ─────────────────────────────
+       DAY HEADER
+    ───────────────────────────── */
+    .day-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin: 56px 0 4px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .day-num {
+      font-family: 'Cormorant', serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--red);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .day-title {
+      font-family: 'Cormorant', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.1;
+      flex: 1;
+    }
+
+    .day-date {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--text3);
+      letter-spacing: 0.1em;
+    }
+
+    /* ─────────────────────────────
+       TRANSIT STRIP
+    ───────────────────────────── */
+    .transit-strip {
+      background: var(--teal-dim);
+      border: 1px solid rgba(61,184,154,0.2);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin: 20px 0 16px;
+    }
+
+    .transit-strip-head {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+
+    .transit-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12.5px;
+      color: var(--text2);
+      margin-bottom: 7px;
+    }
+
+    .transit-line:last-child { margin-bottom: 0; }
+
+    .t-icon { color: var(--teal); flex-shrink: 0; font-size: 11px; margin-top: 2px; }
+
+    .transit-line a {
+      color: var(--teal);
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      border-bottom: 1px solid rgba(61,184,154,0.3);
+    }
+
+    /* ─────────────────────────────
+       TIME OF DAY
+    ───────────────────────────── */
+    .tod {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0 14px;
+    }
+
+    .tod-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text3);
+      white-space: nowrap;
+    }
+
+    .tod-line { flex: 1; height: 1px; background: var(--border); }
+
+    /* ─────────────────────────────
+       CARD
+    ───────────────────────────── */
+    .card {
+      background: var(--ink2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 22px;
+      margin-bottom: 10px;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover { border-color: var(--border2); }
+
+    .card.key { border-left: 3px solid var(--red); }
+    .card.food-card { border-left: 3px solid var(--gold); }
+    .card.transit-card { background: var(--ink3); border-color: var(--border2); }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .card-icon {
+      font-size: 20px;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .card-head { flex: 1; }
+
+    .card-name {
+      font-family: 'Cormorant', serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+
+    .card-map {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      color: var(--teal);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid rgba(61,184,154,0.25);
+      padding-bottom: 1px;
+      transition: color 0.2s;
+    }
+
+    .card-map::before { content: '↗'; }
+    .card-map:hover { color: #6dd5bc; }
+
+    .card-body {
+      font-size: 13.5px;
+      color: var(--text2);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    /* HOW TO GET THERE */
+    .how-box {
+      background: var(--ink3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+
+    .how-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 5px;
+    }
+
+    .how-text {
+      font-size: 12.5px;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+
+    .how-text a {
+      color: var(--teal);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(61,184,154,0.3);
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+    }
+
+    /* TAGS */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.03em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--ink4);
+      color: var(--text3);
+      border: 1px solid var(--border);
+    }
+
+    .tag.red { background: var(--red-dim); color: var(--red); border-color: rgba(232,71,58,0.2); }
+    .tag.gold { background: var(--gold-dim); color: var(--gold); border-color: rgba(212,168,67,0.2); }
+    .tag.teal { background: var(--teal-dim); color: var(--teal); border-color: rgba(61,184,154,0.2); }
+
+    /* ─────────────────────────────
+       DISNEY STRATEGY BOX
+    ───────────────────────────── */
+    .strategy {
+      background: linear-gradient(135deg, rgba(20,30,50,0.9), var(--ink2));
+      border: 1px solid rgba(100,150,220,0.2);
+      border-radius: 16px;
+      padding: 22px;
+      margin: 8px 0 16px;
+    }
+
+    .strategy-title {
+      font-family: 'Cormorant', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .strategy-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 11px;
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+
+    .strategy-item:last-child { margin-bottom: 0; }
+
+    .s-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: #7aa4d8;
+      background: rgba(100,150,220,0.12);
+      border-radius: 4px;
+      padding: 2px 7px;
+      flex-shrink: 0;
+      margin-top: 3px;
+      height: fit-content;
+    }
+
+    /* ─────────────────────────────
+       TIPS SECTION
+    ───────────────────────────── */
+    .tips {
+      margin-top: 64px;
+      border: 1px solid var(--border2);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .tips-header {
+      background: var(--red);
+      padding: 22px 26px 18px;
+    }
+
+    .tips-header h3 {
+      font-family: 'Cormorant', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+
+    .tips-header p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 2px;
+      font-family: 'Space Mono', monospace;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--ink2);
+    }
+
+    @media (max-width: 480px) { .tips-grid { grid-template-columns: 1fr; } }
+
+    .tip-block {
+      padding: 22px 24px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tip-block:nth-child(2n) { border-right: none; }
+    .tip-block:nth-last-child(-n+2) { border-bottom: none; }
+    @media (max-width: 480px) {
+      .tip-block { border-right: none; }
+      .tip-block:last-child { border-bottom: none; }
+    }
+
+    .tip-block h4 {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .tip-block li {
+      font-size: 12.5px;
+      color: var(--text2);
+      margin-bottom: 7px;
+      padding-left: 16px;
+      position: relative;
+      list-style: none;
+      line-height: 1.5;
+    }
+
+    .tip-block li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--text3);
+    }
+
+    /* ─────────────────────────────
+       SCROLL REVEAL
+    ───────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* ─────────────────────────────
+       FOOTER
+    ───────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: var(--text3);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-kanji">東京</div>
+
+  <div class="hero-top">
+    <span class="hero-eyebrow">Personal Holiday · SQ E-Ticket</span>
+    <span class="hero-flight-badge">SIN → HND</span>
+  </div>
+
+  <div class="hero-body">
+    <div class="hero-date-bar">30 MAY — 03 JUN 2026</div>
+    <h1 class="hero-city">To<em>kyo</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">JR East Hotel Mets Shinkiba · DisneySea 25th Anniversary · 5 nights</p>
+    <div class="hero-pills">
+      <span class="hero-pill">Shin-Kiba Station · 2 min</span>
+      <span class="hero-pill">DisneySea · 1 Jun</span>
+      <span class="hero-pill">22–28°C · Humid</span>
+      <span class="hero-pill">¥ JPY ~155/USD</span>
+    </div>
+  </div>
+</section>
+
+<div class="content">
+
+  <!-- ══ AIRPORT → HOTEL ══ -->
+  <div class="section-label reveal">
+    <span class="section-label-text">Getting There</span>
+    <div class="section-label-line"></div>
+  </div>
+
+  <div class="airport-section reveal">
+    <div class="airport-heading">Haneda T3 → Your Hotel</div>
+    <div class="airport-sub">~35 min · ~¥660 · No taxi needed</div>
+
+    <div class="route-steps">
+      <div class="route-step">
+        <div class="route-dot"></div>
+        <div class="route-step-label">Step 1</div>
+        <div class="route-step-title">Land at Terminal 3 (International)</div>
+        <div class="route-step-desc">Clear immigration, collect bags. Before leaving arrivals, get your <strong>Suica IC card</strong> at a JR ticket machine (select English, top right). Load ¥3,000 to start — it works on every train, bus, and convenience store.</div>
+        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+3+Tokyo" target="_blank">Haneda T3 on Maps</a>
+      </div>
+
+      <div class="route-step">
+        <div class="route-dot"></div>
+        <div class="route-step-label">Step 2 · ~11 min</div>
+        <div class="route-step-title">Tokyo Monorail → Tennozu Isle</div>
+        <div class="route-step-desc">Follow "Monorail" signs in arrivals → head to 3F. Board any train direction Hamamatsucho. Get off at <strong>Tennozu Isle Station</strong>.
+          <br><span class="route-tag">~¥400 · Suica</span>
+        </div>
+        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Tennozu+Isle+Station+Tokyo" target="_blank">Tennozu Isle on Maps</a>
+      </div>
+
+      <div class="route-step">
+        <div class="route-dot"></div>
+        <div class="route-step-label">Step 3 · ~10 min</div>
+        <div class="route-step-title">Rinkai Line → Shin-Kiba</div>
+        <div class="route-step-desc">Transfer to the <strong>Rinkai Line</strong> (signs are clear, same level). Direction Shin-Kiba. Ride 3 stops to terminus — <strong>Shin-Kiba Station</strong>.
+          <br><span class="route-tag">~¥260 · Suica</span>
+        </div>
+      </div>
+
+      <div class="route-step">
+        <div class="route-dot"></div>
+        <div class="route-step-label">Destination · 2 min walk</div>
+        <div class="route-step-title">JR East Hotel Mets Premier Tokyo Bay Shinkiba</div>
+        <div class="route-step-desc">Exit station — the hotel is directly in front of you. You cannot miss it. Alternatively: taxi from HND is ~¥3,000–4,000 and takes 20 min if you're exhausted.</div>
+        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=JR+East+Hotel+Mets+Tokyo+Bay+Shinkiba" target="_blank">Hotel on Maps</a>
+      </div>
+    </div>
+
+    <div class="how-box" style="margin-top:22px;">
+      <div class="how-label">🐱 Option — Send Bags Ahead with Takkyubin</div>
+      <p class="how-text">Don't want to carry your suitcase on the train from HND? Use <strong>Yamato Transport (Kuroneko)</strong> — look for the black cat logo counter in the T3 arrivals lobby, right after customs. Fill out a form with the hotel name and address, pay ~¥2,090 per bag, and your luggage is delivered to the hotel by that evening or next morning. You then ride the train with just a small daypack — much more comfortable. <strong>You still keep all your clothes</strong> — it goes directly to your room. Only useful on arrival; for departure, the train to HND with a suitcase is only 35 min and straightforward enough not to bother.</p>
+    </div>
+  </div>
+
+
+  <!-- ══ DAY 1 ══ -->
+  <div class="day-header reveal">
+    <span class="day-num">Day 01</span>
+    <h2 class="day-title">Arrival · First Night</h2>
+    <span class="day-date">SAT 30 MAY</span>
+  </div>
+
+  <div class="transit-strip reveal">
+    <div class="transit-strip-head">↗ Hotel → Shinjuku</div>
+    <div class="transit-line"><span class="t-icon">→</span><span>Shin-Kiba → <strong>Rinkai Line</strong> to Osaki (~20 min)</span></div>
+    <div class="transit-line"><span class="t-icon">→</span><span>Osaki → <strong>JR Yamanote Line</strong> anticlockwise → Shinjuku (~15 min)</span></div>
+    <div class="transit-line"><span class="t-icon">¥</span><span>~¥380 total · <a href="https://www.google.com/maps/dir/Shin-Kiba+Station+Tokyo/Shinjuku+Station+Tokyo" target="_blank">View on Maps</a></span></div>
+  </div>
+
+  <div class="tod reveal"><span class="tod-label">Evening</span><div class="tod-line"></div></div>
+
+  <div class="card key reveal">
+    <div class="card-top">
+      <span class="card-icon">🏮</span>
+      <div class="card-head">
+        <div class="card-name">Omoide Yokocho — Memory Lane</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Omoide+Yokocho+Shinjuku+Tokyo" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">A narrow alley of 20+ tiny yakitori bars running directly behind Shinjuku Station's west side. Bare bulbs, open charcoal grills, a cloud of chicken smoke, and seats for maybe 8 people per bar. Order negima (chicken-leek skewers), tsukune (chicken meatball), and skin-on wings. Cold Sapporo draft. This is one of the best cheap eats in all of Tokyo — ¥2,000–3,000 fills you up completely. No reservations, just walk in. If one's full, the next is two steps away.</p>
+    <div class="how-box">
+      <div class="how-label">Getting There</div>
+      <p class="how-text">Shinjuku Station → West Exit (西口) → cross the road, it's immediately on your left. Look for the red lanterns. <a href="https://www.google.com/maps/dir/Shinjuku+Station+West+Exit/Omoide+Yokocho+Tokyo" target="_blank">Walking route</a></p>
+    </div>
+    <div class="tags">
+      <span class="tag">Open ~5pm–midnight</span>
+      <span class="tag gold">¥2,000–3,000</span>
+      <span class="tag">No reservations</span>
+    </div>
+  </div>
+
+  <div class="card key reveal">
+    <div class="card-top">
+      <span class="card-icon">🍸</span>
+      <div class="card-head">
+        <div class="card-name">Golden Gai — After Dinner</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Golden+Gai+Shinjuku+Tokyo" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">Six narrow alleyways, ~200 tiny bars, each seating 5–10 people. Every bar has its own identity — jazz, horror, punk, retro anime, classic film. Cover charge ¥500–1,000 is normal. Walk slowly until one calls to you — peek in, and go in if the vibe fits. Best experienced after 9pm when locals fill the seats alongside travellers. Easy to end up deep in conversation until 1am. One of the genuinely irreplaceable Tokyo experiences.</p>
+    <div class="how-box">
+      <div class="how-label">Getting There</div>
+      <p class="how-text">From Omoide Yokocho → walk east through Kabukicho → Golden Gai is in Shinjuku 3-chome (behind the east side of Kabukicho). <a href="https://www.google.com/maps/search/?api=1&query=Golden+Gai+Shinjuku+3-chome+Tokyo" target="_blank">Pin on Maps</a></p>
+    </div>
+    <div class="tags">
+      <span class="tag">Best 9pm–midnight</span>
+      <span class="tag gold">¥800–1,500/drink + cover</span>
+      <span class="tag teal">Tourist-friendly</span>
+    </div>
+  </div>
+
+
+  <!-- ══ DAY 2 ══ -->
+  <div class="day-header reveal">
+    <span class="day-num">Day 02</span>
+    <h2 class="day-title">West Tokyo — Harajuku · Shibuya · Shimokitazawa</h2>
+    <span class="day-date">SUN 31 MAY</span>
+  </div>
+
+  <div class="transit-strip reveal">
+    <div class="transit-strip-head">↗ Hotel → Harajuku</div>
+    <div class="transit-line"><span class="t-icon">→</span><span>Shin-Kiba → <strong>Rinkai Line</strong> to Osaki (~20 min)</span></div>
+    <div class="transit-line"><span class="t-icon">→</span><span>Osaki → <strong>JR Yamanote Line</strong> → Harajuku Station (~15 min)</span></div>
+    <div class="transit-line"><span class="t-icon">¥</span><span>~¥380 · <a href="https://www.google.com/maps/dir/Shin-Kiba+Station+Tokyo/Harajuku+Station+Tokyo" target="_blank">View on Maps</a></span></div>
+  </div>
+
+  <div class="tod reveal"><span class="tod-label">Morning</span><div class="tod-line"></div></div>
+
+  <div class="card key reveal">
+    <div class="card-top">
+      <span class="card-icon">⛩️</span>
+      <div class="card-head">
+        <div class="card-name">Meiji Jingu Shrine</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Meiji+Jingu+Shrine+Tokyo" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">Exit Harajuku Station from the Omote-sando exit and walk straight into the forested approach — a 10-minute path through dense cedar trees that immediately kills the city noise. The shrine itself is dedicated to Emperor Meiji; the grounds include a garden, an inner complex with two forested courtyards, and walls hung with ema wooden wishing plaques. Before 9am it's quiet enough to feel meditative. The sake barrel collection near the main complex includes French Bordeaux barrels (gifts from winemakers) alongside Japanese sake — an unexpectedly telling detail about Japan's global connections.</p>
+    <div class="how-box">
+      <div class="how-label">Getting There</div>
+      <p class="how-text">Harajuku Station → Omote-sando Exit → walk straight, the torii gate is directly ahead. Follow the gravel path 10 min to the shrine complex. <a href="https://www.google.com/maps/dir/Harajuku+Station/Meiji+Jingu+Shrine+Tokyo" target="_blank">Walking route</a></p>
+    </div>
+    <div class="tags">
+      <span class="tag teal">Open from sunrise — Free</span>
+      <span class="tag red">Go before 9am</span>
+      <span class="tag">Allow 45 min</span>
+    </div>
+  </div>
+
+  <div class="card reveal">
+    <div class="card-top">
+      <span class="card-icon">👟</span>
+      <div class="card-head">
+        <div class="card-name">Takeshita Street → Omotesando</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Takeshita+Street+Harajuku+Tokyo" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">Walk the contrast: Takeshita-dori is 400m of packed youth fashion, crepe stands, and kawaii accessories — chaotic and worth 20 minutes. Then walk south and emerge onto Omotesando — a wide, tree-lined avenue with flagship architecture stores (Comme des Garçons by Future Systems, Prada by Herzog & de Meuron, Louis Vuitton by Aoki). <strong>Omotesando Hills</strong> is a Tadao Ando-designed mall with a spiralling atrium — enter just for the building. <strong>Cat Street</strong> behind it runs independent streetwear and design boutiques.</p>
+    <div class="how-box">
+      <div class="how-label">Getting There</div>
+      <p class="how-text">From Meiji Shrine → back through Harajuku Station → cross the bridge → Takeshita-dori starts immediately right. Walk to the end, turn left: Omotesando. <a href="https://www.google.com/maps/search/?api=1&query=Omotesando+Hills+Tokyo" target="_blank">Omotesando Hills on Maps</a></p>
+    </div>
+    <div class="tags">
+      <span class="tag">Go before noon</span>
+      <span class="tag">Omotesando Hills open 11am–9pm</span>
+      <span class="tag gold">Crepe at Marion ¥700</span>
+    </div>
+  </div>
+
+  <div class="card food-card reveal">
+    <div class="card-top">
+      <span class="card-icon">🥩</span>
+      <div class="card-head">
+        <div class="card-name">Lunch — Gyukatsu Motomura</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Gyukatsu+Motomura+Harajuku+Tokyo" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">Breaded beef cutlet served rare — you finish cooking it on a small hot stone at your table. The concept is simple and the result is excellent. Queue moves fast. One of the best value meals in this part of the city.</p>
+    <div class="tags"><span class="tag gold">¥1,400–1,800</span><span class="tag">Queue ~15 min, moves fast</span></div>
+  </div>
+
+  <div class="tod reveal"><span class="tod-label">Afternoon</span><div class="tod-line"></div></div>
+
+  <div class="transit-strip reveal">
+    <div class="transit-strip-head">↗ Harajuku → Shibuya</div>
+    <div class="transit-line"><span class="t-icon">→</span><span>Walk 15 min along Meiji-dori, OR Yamanote Line 1 stop · <a href="https://www.google.com/maps/dir/Harajuku+Station/Shibuya+Crossing+Tokyo" target="_blank">Walking route on Maps</a></span></div>
+  </div>
+
+  <div class="card key reveal">
+    <div class="card-top">
+      <span class="card-icon">🏙️</span>
+      <div class="card-head">
+        <div class="card-name">Shibuya Crossing + Shibuya Sky</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Shibuya+Scramble+Crossing+Tokyo" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">Stand in the middle of the scramble crossing during a green light — 3,000 people moving simultaneously in every direction. It's controlled chaos and one of those things that's exactly as impressive as advertised. Then go above it: <strong>Shibuya Sky</strong> at 229m is an open-air rooftop deck on Shibuya Scramble Square with glass perimeter panels and 360° views including Mount Fuji (southwest, on clear days). Book in advance for golden hour — 4–6pm — the city shifts amber and the crossing below becomes a light show. After dark the neon and office towers make it equally worth it.</p>
+    <div class="how-box">
+      <div class="how-label">Shibuya Sky Access</div>
+      <p class="how-text">Enter Shibuya Scramble Square (tallest tower directly above Shibuya Station east exit) → take elevator to 14F to collect/buy tickets → elevator to rooftop. <a href="https://www.google.com/maps/search/?api=1&query=Shibuya+Sky+Observation+Deck+Tokyo" target="_blank">View on Maps</a></p>
+    </div>
+    <div class="tags">
+      <span class="tag red">Book online in advance</span>
+      <span class="tag gold">¥2,700</span>
+      <span class="tag">Best 4–6pm golden hour</span>
+      <span class="tag">Open till 10:30pm</span>
+    </div>
+  </div>
+
+  <div class="transit-strip reveal">
+    <div class="transit-strip-head">↗ Shibuya → Shimokitazawa</div>
+    <div class="transit-line"><span class="t-icon">→</span><span>Shibuya Station → <strong>Keio Inokashira Line</strong> direction Kichijoji → 2nd stop: Shimokitazawa</span></div>
+    <div class="transit-line"><span class="t-icon">¥</span><span>3 min, ¥140 · <a href="https://www.google.com/maps/dir/Shibuya+Station/Shimokitazawa+Station+Tokyo" target="_blank">View on Maps</a></span></div>
+  </div>
+
+  <div class="card reveal">
+    <div class="card-top">
+      <span class="card-icon">📻</span>
+      <div class="card-head">
+        <div class="card-name">Shimokitazawa — Records + Bars</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Shimokitazawa+Tokyo" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">Tokyo's most characterful neighbourhood. Independent record shops (Disk Union, Flash Disc Ranch), vintage clothing, tiny jazz bars, and coffee that takes its time. Key spots: <strong>BONUS TRACK</strong> for curated shops and small restaurants; <strong>Reload</strong> next door for a rotating art installation and food. Very local, very Tokyo — completely unlike Shibuya or Shinjuku two stations back. Allow 2+ hours just to wander. Stay for dinner here — the izakayas and craft beer spots are relaxed and good.</p>
+    <div class="how-box">
+      <div class="how-label">Getting Around</div>
+      <p class="how-text">North Exit → turn right and walk. The neighbourhood fans out from the station. It's compact enough to loop back naturally.</p>
+    </div>
+    <div class="tags">
+      <span class="tag">Best 3–8pm</span>
+      <span class="tag teal">Very walkable</span>
+      <span class="tag red">Early night — Disney tomorrow</span>
+    </div>
+  </div>
+
+  <div class="transit-strip reveal">
+    <div class="transit-strip-head">↗ Shimokitazawa → Hotel</div>
+    <div class="transit-line"><span class="t-icon">→</span><span>Shimokitazawa → Keio Line back to Shibuya (3 min) → Yamanote to Osaki → Rinkai Line to Shin-Kiba</span></div>
+    <div class="transit-line"><span class="t-icon">¥</span><span>~45 min total · ~¥380 · <a href="https://www.google.com/maps/dir/Shimokitazawa+Station/Shin-Kiba+Station+Tokyo" target="_blank">View on Maps</a></span></div>
+  </div>
+
+
+  <!-- ══ DAY 3 DISNEYSEA ══ -->
+  <div class="day-header reveal">
+    <span class="day-num">Day 03</span>
+    <h2 class="day-title">Tokyo DisneySea — 25th Anniversary</h2>
+    <span class="day-date">MON 01 JUN</span>
+  </div>
+
+  <div class="transit-strip reveal">
+    <div class="transit-strip-head">↗ Hotel → DisneySea · Your Best Transit Advantage</div>
+    <div class="transit-line"><span class="t-icon">→</span><span>Shin-Kiba → <strong>JR Keiyo Line</strong> direction Maihama — 2 stops, 13 min</span></div>
+    <div class="transit-line"><span class="t-icon">→</span><span>Maihama → <strong>Disney Resort Line monorail</strong> → Tokyo DisneySea stop (12 min)</span></div>
+    <div class="transit-line"><span class="t-icon">¥</span><span>~28 min total · ~¥350 · <a href="https://www.google.com/maps/dir/Shin-Kiba+Station+Tokyo/Maihama+Station+Urayasu" target="_blank">View on Maps</a></span></div>
+    <div class="transit-line"><span class="t-icon">⏰</span><span><strong>Arrive at park gate by 8am</strong> — 1 hour before 9am opening</span></div>
+    <div class="transit-line"><span class="t-icon">🔒</span><span><strong>Coin lockers</strong> available just outside the DisneySea entrance gate — ~¥400–700/day. Leave anything bulky there so you're hands-free inside the park.</span></div>
+  </div>
+
+  <div class="strategy reveal">
+    <div class="strategy-title">Park Strategy — How to Do This Right</div>
+    <div class="strategy-item"><span class="s-num">01</span><span>The moment you enter: open <strong>Tokyo Disney Resort app</strong>, buy <strong>Disney Premier Access (DPA)</strong> for Tower of Terror immediately — before walking anywhere.</span></div>
+    <div class="strategy-item"><span class="s-num">02</span><span>Then run to <strong>Soaring: Fantastic Flight</strong> (straight ahead, Mediterranean Harbor) — rope-drop this standby. By 10am it's 90+ minutes.</span></div>
+    <div class="strategy-item"><span class="s-num">03</span><span>Buy your next DPA 1 hour after last purchase — use it for <strong>Journey to the Center of the Earth</strong>. It regularly hits 200-min waits; DPA cuts it to 15.</span></div>
+    <div class="strategy-item"><span class="s-num">04</span><span>Eat at <strong>11am or after 2pm</strong>. Set up <strong>Disney Mobile Order</strong> in the app before entering — eliminates food queuing completely.</span></div>
+    <div class="strategy-item"><span class="s-num">05</span><span><strong>Fantasy Springs</strong> (Frozen, Tangled, Peter Pan) is on standby now. Hit it 2–4pm when morning crowds thin out.</span></div>
+    <div class="strategy-item"><span class="s-num">06</span><span><strong>Stay for the nighttime show</strong> — Mediterranean Harbor projection + pyro spectacular. After it ends, queues collapse. Re-ride before closing.</span></div>
+  </div>
+
+  <div class="tod reveal"><span class="tod-label">Rope Drop</span><div class="tod-line"></div></div>
+
+  <div class="card key reveal">
+    <div class="card-top">
+      <span class="card-icon">🌊</span>
+      <div class="card-head">
+        <div class="card-name">Soaring: Fantastic Flight — First Ride</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Tokyo+DisneySea+Mediterranean+Harbor" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">You're seated in a gondola that lifts 6 metres. A domed IMAX screen surrounds you with footage of soaring over the Taj Mahal, Serengeti, Iguazu Falls, Paris, and Tokyo — while the seat tilts and pivots with the image and scent effects (pine forests, ocean spray, cherry blossom) pump through the air. Technically outstanding. Walk-on at opening; 120+ min wait by 10am. Go here first, immediately.</p>
+    <div class="tags">
+      <span class="tag red">First stop — rope drop</span>
+      <span class="tag">Mediterranean Harbor</span>
+      <span class="tag teal">No height restriction</span>
+    </div>
+  </div>
+
+  <div class="card key reveal">
+    <div class="card-top">
+      <span class="card-icon">🗼</span>
+      <div class="card-head">
+        <div class="card-name">Tower of Terror — Via DPA</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Tower+of+Terror+Tokyo+DisneySea" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">DisneySea's version is the darkest, most elaborately themed Tower of Terror of any Disney park in the world. Based on an Indiana Jones-adjacent storyline, you enter the crumbling Hotel Hightower and descend into a haunted elevator that free-falls multiple times in rapid succession. The building exterior — 40 storeys of crumbling stone, vines, and atmospheric decay — is a masterpiece. Standby hits 180 min+ by mid-morning. DPA is ~¥1,500 and completely worth it.</p>
+    <div class="tags">
+      <span class="tag red">Buy DPA on app — first action in park</span>
+      <span class="tag">American Waterfront</span>
+      <span class="tag gold">DPA ~¥1,500</span>
+      <span class="tag">102cm min height</span>
+    </div>
+  </div>
+
+  <div class="card key reveal">
+    <div class="card-top">
+      <span class="card-icon">🌋</span>
+      <div class="card-head">
+        <div class="card-name">Journey to the Center of the Earth — Via DPA</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Journey+Center+Earth+DisneySea+Tokyo" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">The crown jewel of DisneySea. You board a Terra Buggy vehicle and descend through an active volcano — crystalline caverns, glowing prehistoric creatures, erupting lava chambers — before being launched skyward at high speed as the volcano erupts above you. The theming is immaculate from queue to exit. Buy your second DPA for this as soon as Tower of Terror is used.</p>
+    <div class="tags">
+      <span class="tag red">DPA — second pass</span>
+      <span class="tag">Mysterious Island (inside the volcano)</span>
+      <span class="tag">117cm min height</span>
+    </div>
+  </div>
+
+  <div class="tod reveal"><span class="tod-label">Midday</span><div class="tod-line"></div></div>
+
+  <div class="card food-card reveal">
+    <div class="card-top">
+      <span class="card-icon">🍝</span>
+      <div class="card-head">
+        <div class="card-name">Lunch — Ristorante di Canaletto</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Ristorante+di+Canaletto+DisneySea" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">The best restaurant in any Disney park in Japan. Terracotta walls, fresco ceilings, canal-side views — designed to feel like wandering into Venice, and it works. The Italian food is actually good: pasta, risotto, antipasti. Book on the app immediately when entering. If you missed it, arrive at 11am or after 2pm and ask the counter for a same-day seat — this often works. Sit by the canal-facing windows.</p>
+    <div class="tags">
+      <span class="tag red">Book on app when entering</span>
+      <span class="tag gold">¥3,500–5,500</span>
+      <span class="tag">Mediterranean Harbor · waterside</span>
+    </div>
+  </div>
+
+  <div class="tod reveal"><span class="tod-label">Afternoon</span><div class="tod-line"></div></div>
+
+  <div class="card reveal">
+    <div class="card-top">
+      <span class="card-icon">❄️</span>
+      <div class="card-head">
+        <div class="card-name">Fantasy Springs — Frozen · Tangled · Peter Pan</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Fantasy+Springs+Tokyo+DisneySea" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">The 2024 expansion — three immersive themed ports with extraordinary detail. Frozen Ever After is the flagship: a boat journey through Arendelle's winter kingdom. Peter Pan's Never Land Adventure is a trackless dark ride with projection effects that land genuinely close to magic. All of Fantasy Springs is on standby now — no DPA needed. Hit it 2–4pm when morning crowds have spread out across the park.</p>
+    <div class="tags">
+      <span class="tag teal">Standby — no DPA needed</span>
+      <span class="tag">Best 2–4:30pm</span>
+      <span class="tag">New since 2024</span>
+    </div>
+  </div>
+
+  <div class="tod reveal"><span class="tod-label">Evening — Do Not Leave Early</span><div class="tod-line"></div></div>
+
+  <div class="card key reveal">
+    <div class="card-top">
+      <span class="card-icon">🎆</span>
+      <div class="card-head">
+        <div class="card-name">Nighttime Show — Believe! Sea of Dreams</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Tokyo+DisneySea+Mediterranean+Harbor" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">Widely considered the best nighttime show in any Disney park worldwide. The entire Mediterranean Harbor becomes a stage: the volcano and surrounding buildings are mapped with projections, pyrotechnics fire from multiple points, a live orchestra soundtrack fills the air, and characters sail across the illuminated water. Secure your harbour spot 40 minutes before showtime. After the show, queues across the park collapse — use the remaining time before close for re-rides.</p>
+    <div class="tags">
+      <span class="tag red">Get harbour spot 40 min early</span>
+      <span class="tag">Check showtime on app (~8:30pm)</span>
+      <span class="tag teal">Re-ride after — queues drop</span>
+    </div>
+  </div>
+
+  <div class="transit-strip reveal">
+    <div class="transit-strip-head">↗ DisneySea → Hotel</div>
+    <div class="transit-line"><span class="t-icon">→</span><span>Disney Resort Line → Maihama → JR Keiyo Line → Shin-Kiba (2 stops)</span></div>
+    <div class="transit-line"><span class="t-icon">¥</span><span>~28 min · <a href="https://www.google.com/maps/dir/Maihama+Station/Shin-Kiba+Station+Tokyo" target="_blank">View on Maps</a></span></div>
+  </div>
+
+
+  <!-- ══ DAY 4 ══ -->
+  <div class="day-header reveal">
+    <span class="day-num">Day 04</span>
+    <h2 class="day-title">East Tokyo — Asakusa · Skytree · teamLab · Last Night</h2>
+    <span class="day-date">TUE 02 JUN</span>
+  </div>
+
+  <div class="transit-strip reveal">
+    <div class="transit-strip-head">↗ Hotel → Asakusa (Early Morning)</div>
+    <div class="transit-line"><span class="t-icon">→</span><span>Shin-Kiba → JR Keiyo Line to Tokyo Station (~15 min) → Ginza Line to Asakusa (~10 min)</span></div>
+    <div class="transit-line"><span class="t-icon">¥</span><span>~¥280 · aim for Asakusa by 7:30am · <a href="https://www.google.com/maps/dir/Shin-Kiba+Station+Tokyo/Asakusa+Station+Tokyo" target="_blank">View on Maps</a></span></div>
+  </div>
+
+  <div class="tod reveal"><span class="tod-label">Early Morning</span><div class="tod-line"></div></div>
+
+  <div class="card key reveal">
+    <div class="card-top">
+      <span class="card-icon">🏮</span>
+      <div class="card-head">
+        <div class="card-name">Senso-ji Temple — Before 8am</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Sensoji+Temple+Asakusa+Tokyo" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">Tokyo's oldest temple (founded 628 AD) — and one of the world's most-visited sites, which means timing is everything. Before 8am the Kaminarimon gate is empty, the incense smoke drifts across the courtyard in still air, and the main hall is occupied only by locals praying. The 200m Nakamise-dori approach (market stalls) is shuttered, letting you see the Edo-period buildings they occupy. Try omikuji fortune papers (¥100 — shake the box until a numbered stick falls out, find the corresponding drawer). By 8:30am tour groups arrive and the experience shifts entirely.</p>
+    <div class="how-box">
+      <div class="how-label">Getting There</div>
+      <p class="how-text">Asakusa Station (Ginza Line) Exit 1 → walk 5 min east → the giant red Kaminarimon lantern is unmissable. <a href="https://www.google.com/maps/dir/Asakusa+Station+Tokyo/Sensoji+Temple" target="_blank">Walking route</a></p>
+    </div>
+    <div class="tags">
+      <span class="tag teal">Open 24h · Free</span>
+      <span class="tag red">Go before 8am</span>
+      <span class="tag">Allow 45 min</span>
+    </div>
+  </div>
+
+  <div class="card food-card reveal">
+    <div class="card-top">
+      <span class="card-icon">🍵</span>
+      <div class="card-head">
+        <div class="card-name">Breakfast — Pelican Café</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Pelican+Cafe+Asakusa+Tokyo" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">Opens 8am. Thick-cut toast from a bakery that's been making bread since 1942 — served with cultured butter and house jam, or with egg. Queue forms but moves quickly. The simplicity and quality is the point. Alternatively, grab from the Lawson along the river and eat on the Sumida River promenade — beautiful at sunrise.</p>
+    <div class="tags"><span class="tag gold">¥800–1,200</span><span class="tag">Cash only</span><span class="tag">Opens 8am</span></div>
+  </div>
+
+  <div class="tod reveal"><span class="tod-label">Morning</span><div class="tod-line"></div></div>
+
+  <div class="card reveal">
+    <div class="card-top">
+      <span class="card-icon">🛶</span>
+      <div class="card-head">
+        <div class="card-name">Sumida River Walk → Tokyo Skytree</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Tokyo+Skytree+Sumida" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">Walk 15 min south along the Sumida River from Senso-ji — the Skytree becomes visible almost immediately and grows as you approach. The Tembo Deck at 350m gives the complete Tokyo panorama; the Tembo Galleria at 450m is a glass-floored spiral walkway at the highest point. Book online before arriving to skip the queue — walk-up waits are substantial, especially weekends. The Solamachi shopping complex at the base has 300+ shops and a good range of restaurants if you need a break.</p>
+    <div class="how-box">
+      <div class="how-label">Getting There</div>
+      <p class="how-text">From Senso-ji → walk south 15 min following the river, OR Asakusa Station → Tobu Skytree Line 1 stop to Tokyo-Skytree Station. <a href="https://www.google.com/maps/dir/Sensoji+Temple/Tokyo+Skytree" target="_blank">Walking route</a></p>
+    </div>
+    <div class="tags">
+      <span class="tag red">Book online</span>
+      <span class="tag gold">Tembo Deck ¥2,100</span>
+      <span class="tag">Open 10am–9pm</span>
+    </div>
+  </div>
+
+  <div class="tod reveal"><span class="tod-label">Afternoon</span><div class="tod-line"></div></div>
+
+  <div class="transit-strip reveal">
+    <div class="transit-strip-head">↗ Skytree → Akihabara</div>
+    <div class="transit-line"><span class="t-icon">→</span><span>Walk 20 min along Kuramaebashi-dori, OR Tokyo-Skytree Stn → Asakusa → Ginza Line → Akihabara</span></div>
+    <div class="transit-line"><span class="t-icon">→</span><span><a href="https://www.google.com/maps/dir/Tokyo+Skytree/Akihabara+Electric+Town" target="_blank">View on Maps</a></span></div>
+  </div>
+
+  <div class="card reveal">
+    <div class="card-top">
+      <span class="card-icon">⚡</span>
+      <div class="card-head">
+        <div class="card-name">Akihabara — Electric Town</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Akihabara+Electric+Town+Tokyo" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">Multi-storey buildings blasting J-pop, covered in anime billboards, stacked floor-to-floor with electronics, manga, trading cards, gaming hardware, and figurines. Key stops: <strong>Yodobashi Akiba</strong> (8 floors of electronics — tax-free for tourists) for anything tech; <strong>Mandarake</strong> for vintage collectibles and old manga; <strong>Super Potato</strong> for retro gaming (Famicom, SNES, arcade sticks); <strong>Pokémon Center Akihabara</strong> for exclusive merch. Even if you're not into anime culture, the density and energy of the place is worth an hour.</p>
+    <div class="how-box">
+      <div class="how-label">Getting There</div>
+      <p class="how-text">Akihabara Station (JR lines or Hibiya Line) → Electric Town Exit → you're already in it.</p>
+    </div>
+    <div class="tags">
+      <span class="tag teal">Tax-free ¥5,000+ (claim at airport)</span>
+      <span class="tag">Shops open 11am–8pm</span>
+    </div>
+  </div>
+
+  <div class="card food-card reveal">
+    <div class="card-top">
+      <span class="card-icon">🍱</span>
+      <div class="card-head">
+        <div class="card-name">Lunch — Kanda Yabu Soba</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Kanda+Yabu+Soba+Tokyo" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">5 min walk from Akihabara. Operating in the same building since 1880 — hand-cut buckwheat noodles served cold with a dipping broth (zaru soba). The simplicity and quality are the point. The noodle texture is different to anything outside Japan. Also known for prawn tempura. Cash only; queue forms but moves in 15 min.</p>
+    <div class="tags">
+      <span class="tag gold">¥1,200–2,000</span>
+      <span class="tag">Cash only</span>
+      <span class="tag">11:30am–7:30pm (closed Tue)</span>
+    </div>
+  </div>
+
+  <div class="transit-strip reveal">
+    <div class="transit-strip-head">↗ Akihabara → teamLab Planets (Toyosu)</div>
+    <div class="transit-line"><span class="t-icon">→</span><span>Akihabara → JR to Tokyo Station → Yurakucho Line to Shin-Toyosu (~25 min)</span></div>
+    <div class="transit-line"><span class="t-icon">→</span><span><a href="https://www.google.com/maps/dir/Akihabara+Station/teamLab+Planets+Tokyo+Toyosu" target="_blank">View on Maps</a> · Book tickets before you go</span></div>
+  </div>
+
+  <div class="tod reveal"><span class="tod-label">Evening</span><div class="tod-line"></div></div>
+
+  <div class="card key reveal">
+    <div class="card-top">
+      <span class="card-icon">🖼️</span>
+      <div class="card-head">
+        <div class="card-name">teamLab Planets — Barefoot Immersive Art</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=teamLab+Planets+Tokyo+Toyosu" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">Remove shoes and socks at the entrance and walk through rooms where art installations respond to your movement in real time. Standout rooms: <strong>Floating in the Falling Universe of Flowers</strong> — an overhead dome of falling seasonal blossoms; <strong>Infinite Crystal Universe</strong> — a mirror-and-LED corridor extending infinitely in every direction; <strong>Waterfall of Light Particles</strong> — shimmering light threads you walk through while knee-deep in cool water. The water rooms are disorienting and beautiful in equal measure. Book 1–2 weeks in advance — this regularly sells out.</p>
+    <div class="how-box">
+      <div class="how-label">Getting There</div>
+      <p class="how-text">Shin-Toyosu Station (Yurakucho Line) → Exit 1 → 5 min walk. <a href="https://www.google.com/maps/search/?api=1&query=teamLab+Planets+TOKYO+DMM+Toyosu" target="_blank">View on Maps</a></p>
+    </div>
+    <div class="tags">
+      <span class="tag red">Book online — sells out</span>
+      <span class="tag gold">¥3,200</span>
+      <span class="tag">Open till 9pm (last entry 8pm)</span>
+    </div>
+  </div>
+
+  <div class="card food-card reveal">
+    <div class="card-top">
+      <span class="card-icon">🥩</span>
+      <div class="card-head">
+        <div class="card-name">Final Dinner — Yakiniku in Shinjuku</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Ushigoro+Bambina+Shinjuku+Tokyo" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">Last real dinner. <strong>Ushigoro Bambina Shinjuku</strong> does tabletop yakiniku with wagyu cuts grilled over binchōtan charcoal at your table — karubi (short rib), tan (tongue), sirloin. Order a range, take your time. Follow dinner with a final walk through Kabukicho or one last Golden Gai bar. Last trains on Yamanote run until ~12:30am.</p>
+    <div class="how-box">
+      <div class="how-label">From teamLab → Shinjuku</div>
+      <p class="how-text">Shin-Toyosu → Yurakucho Line → Iidabashi → Oedo Line → Shinjuku-Nishiguchi (~30 min). <a href="https://www.google.com/maps/dir/Shin-Toyosu+Station/Shinjuku+Station+Tokyo" target="_blank">View on Maps</a></p>
+    </div>
+    <div class="tags">
+      <span class="tag gold">¥4,000–8,000</span>
+      <span class="tag red">Reserve ahead</span>
+    </div>
+  </div>
+
+  <div class="transit-strip reveal">
+    <div class="transit-strip-head">↗ Shinjuku → Hotel (Late Night)</div>
+    <div class="transit-line"><span class="t-icon">→</span><span>Shinjuku → Yamanote Line to Osaki → Rinkai Line to Shin-Kiba (~35 min)</span></div>
+    <div class="transit-line"><span class="t-icon">→</span><span>Last Yamanote ~12:30am · <a href="https://www.google.com/maps/dir/Shinjuku+Station/Shin-Kiba+Station+Tokyo" target="_blank">View on Maps</a></span></div>
+  </div>
+
+
+  <!-- ══ DAY 5 ══ -->
+  <div class="day-header reveal">
+    <span class="day-num">Day 05</span>
+    <h2 class="day-title">Departure — HND → SIN</h2>
+    <span class="day-date">WED 03 JUN · LAND 04 JUN</span>
+  </div>
+
+  <div class="transit-strip reveal">
+    <div class="transit-strip-head">↗ Hotel → Haneda Airport T3</div>
+    <div class="transit-line"><span class="t-icon">→</span><span>Shin-Kiba → Rinkai Line to Tennozu Isle → Tokyo Monorail → Haneda Airport T3</span></div>
+    <div class="transit-line"><span class="t-icon">¥</span><span>~35 min total · <a href="https://www.google.com/maps/dir/JR+East+Hotel+Mets+Shinkiba/Haneda+Airport+Terminal+3" target="_blank">View on Maps</a> · Allow 2.5h before departure</span></div>
+    <div class="transit-line"><span class="t-icon">🧳</span><span>Train to HND with a suitcase is fine — 35 min, not crowded on a weekday morning. Hotel front desk will hold bags if you check out early and want a final walk first.</span></div>
+  </div>
+
+  <div class="tod reveal"><span class="tod-label">Morning</span><div class="tod-line"></div></div>
+
+  <div class="card reveal">
+    <div class="card-top">
+      <span class="card-icon">🛍️</span>
+      <div class="card-head">
+        <div class="card-name">Last Picks Before Leaving</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Tokyo+Station+Character+Street" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">The Lawson at Shin-Kiba Station (1 min from hotel) is best for snacks, whisky minis, and onigiri for the flight. If you need Disney or Ghibli omiyage, <strong>Tokyo Station Character Street</strong> (B1F, open 7:30am) is on the way — all character shops under one roof. At HND T3 duty-free: Japanese whisky (Suntory Toki, Nikka From The Barrel) and skincare (Shiseido, SK-II) are excellent value. <strong>Tax refund counter is before security</strong> — do this first if you have ¥5,000+ in purchases.</p>
+    <div class="tags">
+      <span class="tag teal">Lawson at station — 1 min</span>
+      <span class="tag">Character Street open 7:30am</span>
+      <span class="tag red">Tax refund before security</span>
+    </div>
+  </div>
+
+  <div class="card key reveal">
+    <div class="card-top">
+      <span class="card-icon">✈️</span>
+      <div class="card-head">
+        <div class="card-name">Haneda T3 → Singapore</div>
+        <a class="card-map" href="https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+3+International" target="_blank">Google Maps</a>
+      </div>
+    </div>
+    <p class="card-body">SIA check-in closes 40 min before departure. Online check-in opens 48 hours before — do this from the hotel to save time. Terminal 3 is clean, fast, and good airside. You land Singapore on 4 June — 25+ hours before your SQ 636 crew flight on 5 June night. Plenty of buffer.</p>
+    <div class="tags">
+      <span class="tag">Online check-in opens 48h before</span>
+      <span class="tag red">Check-in closes 40 min before</span>
+      <span class="tag teal">Land SIN · 4 Jun</span>
+    </div>
+  </div>
+
+
+  <!-- ══ TIPS ══ -->
+  <div class="tips reveal">
+    <div class="tips-header">
+      <h3>Essential Tips</h3>
+      <p>Before you land</p>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-block">
+        <h4>Getting Around</h4>
+        <ul>
+          <li>Suica IC card — tap on trains, buses, and conbini</li>
+          <li>Google Maps is perfect for Tokyo transit routing</li>
+          <li>Shin-Kiba has JR Keiyo + Rinkai + Yurakucho Lines</li>
+          <li>Last trains run ~midnight–12:30am on main lines</li>
+          <li>Taxis work but trains are almost always faster</li>
+        </ul>
+      </div>
+      <div class="tip-block">
+        <h4>Book in Advance</h4>
+        <ul>
+          <li>teamLab Planets — 1–2 weeks ahead, sells out</li>
+          <li>DisneySea tickets — Tokyo Disney Resort app</li>
+          <li>Shibuya Sky — book a time slot online</li>
+          <li>Ristorante di Canaletto — in-park app on the day</li>
+          <li>Final yakiniku dinner — reserve ahead</li>
+        </ul>
+      </div>
+      <div class="tip-block">
+        <h4>Money</h4>
+        <ul>
+          <li>Japan is still heavily cash-based in 2026</li>
+          <li>7-Eleven ATM — no fees with foreign cards</li>
+          <li>Tax-free on purchases ¥5,000+ (claim at airport)</li>
+          <li>Weak yen makes everything very affordable</li>
+        </ul>
+      </div>
+      <div class="tip-block">
+        <h4>Pack + Weather</h4>
+        <ul>
+          <li>Late May / June: humid, 22–28°C</li>
+          <li>Light rain jacket — rainy season begins June</li>
+          <li>Comfortable shoes — 15,000+ steps daily</li>
+          <li>Google Translate camera mode is essential</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>Tokyo · May–June 2026 · Built with Claude</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 40);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
