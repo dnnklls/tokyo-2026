@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tokyo · Harajuku to Ginza Day Trip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #f5f0e8; --bg2: #ede7db; --surface: #ffffff; --border: #d4cec2;
+    --text: #1a1a1a; --text-dim: #6b6560; --accent: #e0582b; --navy: #1e3a5f;
+    --shop: #e0582b; --food: #b8862b; --move: #1e3a5f; --fun: #c23a6b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Instrument Sans', sans-serif; line-height: 1.55; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+  .hero { background: radial-gradient(circle at 85% 15%, rgba(224,88,43,.55), transparent 55%), radial-gradient(circle at 10% 90%, rgba(194,58,107,.35), transparent 50%), var(--navy); color: #fff; padding: 64px 0 52px; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+  .hero h1 { font-family: 'Fraunces', serif; font-weight: 800; font-size: clamp(42px, 10vw, 72px); line-height: 1; margin: 14px 0 12px; }
+  .hero h1 em { font-weight: 300; font-style: italic; }
+  .hero p { font-size: 17px; opacity: .9; }
+
+  .chips { display: flex; gap: 10px; overflow-x: auto; padding: 18px 20px; max-width: 720px; margin: 0 auto; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex: 0 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 8px 14px; font-size: 13px; white-space: nowrap; }
+  .chip b { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-dim); font-weight: 500; margin-right: 6px; text-transform: uppercase; }
+
+  .phase { margin: 36px 0 14px; display: flex; align-items: baseline; gap: 12px; }
+  .phase h2 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 28px; }
+  .phase span { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: .1em; }
+
+  .timeline { position: relative; padding-left: 22px; }
+  .timeline::before { content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
+  .card { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; margin-bottom: 12px; box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 14px rgba(0,0,0,.04); }
+  .card::before { content: ''; position: absolute; left: -22px; top: 22px; width: 14px; height: 14px; border-radius: 50%; background: var(--c, var(--accent)); border: 3px solid var(--bg); }
+  .card.shop { --c: var(--shop); } .card.food { --c: var(--food); } .card.move { --c: var(--move); background: var(--bg2); box-shadow: none; } .card.fun { --c: var(--fun); }
+  .time { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--c); font-weight: 500; }
+  .card h3 { font-size: 17px; font-weight: 700; margin: 2px 0 4px; }
+  .card p { font-size: 14.5px; color: #333; }
+  .meta { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--text-dim); margin-top: 8px; }
+  .card a { color: var(--navy); }
+
+  .tips { margin: 40px 0; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
+  .tips h2 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 24px; margin-bottom: 12px; }
+  .tips ul { list-style: none; }
+  .tips li { padding: 9px 0; border-top: 1px solid var(--bg2); font-size: 14.5px; }
+  .tips li:first-child { border-top: none; }
+  .tips li b { display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); font-weight: 500; }
+
+  footer { text-align: center; padding: 30px 0 50px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-dim); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Tokyo · One-day plan · Mon to Sat</div>
+    <h1>Harajuku <em>to</em> Ginza</h1>
+    <p>Streetwear in the morning, Ginza for the rest of the day, omurice to finish.</p>
+  </div>
+</header>
+
+<div class="chips">
+  <div class="chip"><b>Time</b>10:45 to 20:00</div>
+  <div class="chip"><b>Areas</b>Harajuku · Ginza · Nihonbashi</div>
+  <div class="chip"><b>Transit</b>Chiyoda + Ginza lines</div>
+  <div class="chip"><b>Avoid</b>Sundays (Rengatei closed)</div>
+  <div class="chip"><b>Pay</b>Suica / IC card</div>
+</div>
+
+<main class="wrap">
+
+  <div class="phase"><h2>Harajuku</h2><span>Morning</span></div>
+  <div class="timeline">
+    <div class="card move">
+      <div class="time">10:45</div>
+      <h3>🚇 Arrive Meiji-jingumae (Harajuku) Stn</h3>
+      <p>Take Exit 5 for Jingumae. Supreme and Carhartt are about 5 minutes' walk down the backstreets.</p>
+    </div>
+    <div class="card shop">
+      <div class="time">11:00</div>
+      <h3>🛹 Supreme Harajuku</h3>
+      <p>Be there when it opens. It gets packed fast and checkout queues build up by midday.</p>
+      <div class="meta">11:00 to 20:00 daily · Jingumae 4-32-7, 2F · ask for tax-free at checkout</div>
+    </div>
+    <div class="card shop">
+      <div class="time">11:30</div>
+      <h3>🧥 Carhartt WIP Harajuku</h3>
+      <p>Practically next door to Supreme. Good for workwear jackets and pants. Check sizing before you pay.</p>
+      <div class="meta">11:00 to 20:00 · Jingumae 4-28-25 · no exchanges or refunds</div>
+    </div>
+    <div class="card shop">
+      <div class="time">12:00</div>
+      <h3>🔺 Palace Skateboards Tokyo</h3>
+      <p>About 5 minutes' walk. Doors open at noon, so you arrive just as it opens. Collab weeks bring queues, and stock sells out quickly.</p>
+      <div class="meta">Mon to Fri 12:00 to 20:00 · Sat from 11:00 · Jingumae 5-9-20 · no try-ons</div>
+    </div>
+    <div class="card move">
+      <div class="time">12:40</div>
+      <h3>🚇 Chiyoda Line: Meiji-jingumae → Hibiya</h3>
+      <p>Direct train, no transfer, about 12 minutes. Take exit A0 or A1 toward Yurakucho.</p>
+      <div class="meta">~¥210 on IC</div>
+    </div>
+  </div>
+
+  <div class="phase"><h2>Ginza</h2><span>Afternoon</span></div>
+  <div class="timeline">
+    <div class="card food">
+      <div class="time">13:00</div>
+      <h3>🍜 AFURI Yurakucho</h3>
+      <p>Get the signature yuzu shio ramen. You order at an English ticket machine and sit at the counter. The lunch rush has mostly passed by 1pm.</p>
+      <div class="meta">11:00 to 23:00 · Yurakucho 2-9-1 · ~¥1,500 to 2,500</div>
+    </div>
+    <div class="card shop">
+      <div class="time">14:00</div>
+      <h3>🍎 Apple Ginza</h3>
+      <p>5 minutes' walk along Chuo-dori. If you need a repair or battery swap, book a slot in the morning so it's ready by evening.</p>
+      <div class="meta">10:00 to 21:00 · Ginza 3-5-12</div>
+    </div>
+    <div class="card move">
+      <div class="time">14:40</div>
+      <h3>🚇 Ginza Line: Ginza → Nihonbashi</h3>
+      <p>One stop, 2 minutes. You can also walk it in about 15 minutes straight up Chuo-dori.</p>
+    </div>
+    <div class="card fun">
+      <div class="time">14:50</div>
+      <h3>⚡ Pokémon Center DX</h3>
+      <p>On Takashimaya East Wing 5F, with its own elevator from the lobby. Look for Tokyo-exclusive plushies and cards. The Pokémon Café next door needs a booking.</p>
+      <div class="meta">10:30 to 21:00 · Nihonbashi 2-11-2 · checkout line can run 20 min</div>
+    </div>
+    <div class="card move">
+      <div class="time">16:05</div>
+      <h3>🚇 Ginza Line back to Ginza</h3>
+      <p>One stop. Take Exit A2 for the 6-chome side.</p>
+    </div>
+    <div class="card shop">
+      <div class="time">16:15</div>
+      <h3>👕 Uniqlo Ginza Flagship</h3>
+      <p>12 floors, with lines you won't see in smaller stores, plus the full UT range. A good time to stock up on Heattech. Use the fast self-checkout.</p>
+      <div class="meta">11:00 to 21:00 · Ginza 6-9-5 · tax-free counter in store</div>
+    </div>
+  </div>
+
+  <div class="phase"><h2>Dinner</h2><span>Evening</span></div>
+  <div class="timeline">
+    <div class="card food">
+      <div class="time">17:30</div>
+      <h3>🐷 Tonkatsu Ginza Bairin Honten</h3>
+      <p>A Ginza classic since 1927, 2 minutes from Uniqlo. Get there by 5:30 to stay ahead of the dinner queue. If you'd rather save room for omurice, get the famous katsu sando to take away.</p>
+      <div class="meta">11:30 to 20:00 · Ginza 7-8-1, B1 · ~¥1,800 to 3,500</div>
+    </div>
+    <div class="card food">
+      <div class="time">19:00</div>
+      <h3>🍳 Rengatei</h3>
+      <p>The birthplace of omurice. Their version mixes the egg through the rice instead of wrapping it. Go for the history and the atmosphere. Get there by 7pm, because they close at 8.</p>
+      <div class="meta">Dinner 17:30 to 20:00 · closed Sun · Ginza 3-5-16 · ~¥2,500+</div>
+    </div>
+  </div>
+
+  <section class="tips">
+    <h2>Good to know</h2>
+    <ul>
+      <li><b>Pick the right day</b>Monday to Saturday only. Rengatei is closed on Sundays, and Palace opens an hour earlier on Saturdays.</li>
+      <li><b>Tax-free</b>Bring your passport. Supreme, Uniqlo, Apple and Pokémon Center do tax-free on ¥5,000+ purchases.</li>
+      <li><b>Carry</b>A foldable tote. By Uniqlo you'll be juggling bags, so consider sending them back to the hotel with a coin locker or takkyubin.</li>
+      <li><b>Food pacing</b>Two dinners is a lot. Share a katsu set or get the Bairin sando to go, then have omurice properly.</li>
+      <li><b>Walkable</b>Everything in Ginza is within a 10 minute walk. You only need trains for the Harajuku → Ginza hop and Nihonbashi.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>Built with Claude · 18 Nov 2026</footer>
+</body>
+</html>
